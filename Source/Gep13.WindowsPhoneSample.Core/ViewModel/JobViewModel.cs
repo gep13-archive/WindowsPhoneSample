@@ -1,4 +1,4 @@
-﻿namespace Gep13.WindowsPhoneSample.WindowsPhone.ViewModel
+﻿namespace Gep13.WindowsPhoneSample.Core.ViewModel
 {
     using GalaSoft.MvvmLight;
 

@@ -1,8 +1,8 @@
-﻿namespace Gep13.WindowsPhoneSample.WindowsPhone.Mappers
+﻿namespace Gep13.WindowsPhoneSample.Core.Mappers
 {
     using AutoMapper;
     using Gep13.WindowsPhoneSample.Core.Dto;
-    using Gep13.WindowsPhoneSample.WindowsPhone.ViewModel;
+    using Gep13.WindowsPhoneSample.Core.ViewModel;
 
     public class DtoToViewModelMappingProfile : Profile
     {

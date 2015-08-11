@@ -2,11 +2,10 @@
 {
     using System;
     using System.Threading.Tasks;
-
     using Gep13.WindowsPhoneSample.Core.Model;
-
     using SQLite.Net;
     using SQLite.Net.Platform.WindowsPhone8;
+    using Windows.Storage;
 
     public class Gep13DataContext
     {
@@ -38,7 +37,7 @@
         {
             try
             {
-                var store = await Windows.Storage.ApplicationData.Current.LocalFolder.GetFileAsync(fileName);
+                var store = await ApplicationData.Current.LocalFolder.GetFileAsync(fileName);
 
                 if (store != null)
                 {

@@ -2,7 +2,6 @@
 {
     using Gep13.WindowsPhoneSample.Core.Mappers;
     using Gep13.WindowsPhoneSample.Core.Repository;
-    using Microsoft.VisualBasic;
     using Windows.ApplicationModel.Background;
     using Windows.Storage;
 
