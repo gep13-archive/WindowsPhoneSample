@@ -14,6 +14,11 @@ namespace Gep13.WindowsPhoneSample.Core.ViewModel
         public MainViewModel(IJobService jobService)
         {
             this.jobService = jobService;
+
+            if (this.IsInDesignMode)
+            {
+                this.Jobs = this.jobService.GetListOfJobs();
+            }
         }
 
         public RelayCommand PageLoadedCommand

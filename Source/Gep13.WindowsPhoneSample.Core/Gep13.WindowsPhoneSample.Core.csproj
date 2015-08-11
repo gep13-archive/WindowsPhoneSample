@@ -45,6 +45,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dto\JobDto.cs" />
+    <Compile Include="Fakes\Repository\FakeJobRepository.cs" />
+    <Compile Include="Fakes\Services\FakeJobService.cs" />
     <Compile Include="Mappers\AutoMapperConfiguration.cs" />
     <Compile Include="Mappers\DomainToDtoMappingProfile.cs" />
     <Compile Include="Mappers\DtoToDomainMappingProfile.cs" />
