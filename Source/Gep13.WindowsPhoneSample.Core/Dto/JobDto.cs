@@ -2,13 +2,11 @@
 {
     public class JobDto
     {
-        public string JobId { get; set; }
+        public int Id { get; set; }
 
-        public string JourneyId { get; set; }
+        public int JourneyId { get; set; }
 
         public string JobStatus { get; set; }
-
-        public string JobStatusLabel { get; set; }
 
         public string CustomerJobNo { get; set; }
 

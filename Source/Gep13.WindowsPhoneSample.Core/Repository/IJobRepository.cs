@@ -6,11 +6,11 @@
 
     public interface IJobRepository
     {
-        ReadOnlyCollection<JobDto> GetJobsByJourneyId(string journeyId);
+        ReadOnlyCollection<JobDto> GetJobsByJourneyId(int journeyId);
 
         JobDto AddJob(Job job);
 
-        JobDto UpdateJobStatus(string jobId, string status, string statusLabel);
+        JobDto UpdateJobStatus(int jobId, string status);
 
         int DeleteAllJobs();
     }

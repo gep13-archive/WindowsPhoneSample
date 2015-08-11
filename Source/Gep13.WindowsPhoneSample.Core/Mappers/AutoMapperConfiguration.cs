@@ -15,6 +15,7 @@
                 }
 
                 mapper.AddProfile<DomainToDtoMappingProfile>();
+                mapper.AddProfile<DtoToDomainMappingProfile>();
             });
         }
     }

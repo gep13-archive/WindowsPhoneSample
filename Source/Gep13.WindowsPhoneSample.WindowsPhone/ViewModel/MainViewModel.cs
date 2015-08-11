@@ -72,16 +72,14 @@ namespace Gep13.WindowsPhoneSample.WindowsPhone.ViewModel
             var job = new JobDto
             {
                 ClientName = "Test",
-                JobId = "1",
                 CustomerJobNo = "1234",
                 JobStatus = "ALLOCATED",
-                JobStatusLabel = "Allocated",
-                JourneyId = "1"
+                JourneyId = 1
             };
 
-            this.jobService.AddJob(job);
+            var newJob = this.jobService.AddJob(job);
 
-            this.Jobs.Add(Mapper.Map<JobViewModel>(job));
+            this.Jobs.Add(Mapper.Map<JobViewModel>(newJob));
         }
     }
 }

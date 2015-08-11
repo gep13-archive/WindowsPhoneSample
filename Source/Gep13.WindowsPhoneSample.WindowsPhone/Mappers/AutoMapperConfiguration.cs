@@ -1,9 +1,7 @@
 ﻿namespace Gep13.WindowsPhoneSample.WindowsPhone.Mappers
 {
     using System;
-
     using AutoMapper;
-
     using Gep13.WindowsPhoneSample.Core.Mappers;
 
     public static class AutoMapperConfiguration
@@ -18,6 +16,8 @@
                 }
 
                 mapper.AddProfile<DtoToViewModelMappingProfile>();
+                mapper.AddProfile<DomainToDtoMappingProfile>();
+                mapper.AddProfile<DtoToDomainMappingProfile>();
             });
         }
     }

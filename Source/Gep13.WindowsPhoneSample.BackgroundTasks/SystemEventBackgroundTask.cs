@@ -17,11 +17,11 @@
             var settings = ApplicationData.Current.LocalSettings;
 
             var jobRepository = new JobRepository();
-            var jobs = jobRepository.GetJobsByJourneyId("1");
+            var jobs = jobRepository.GetJobsByJourneyId(1);
 
             foreach (var job in jobs)
             {
-                jobRepository.UpdateJobStatus(job.JobId, "ACCEPTED", "Accepted");
+                jobRepository.UpdateJobStatus(job.Id, "ACCEPTED");
             }
 
             deferral.Complete();

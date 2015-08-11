@@ -10,6 +10,10 @@ using Gep13.WindowsPhoneSample.WindowsPhone.Resources;
 
 namespace Gep13.WindowsPhoneSample.WindowsPhone
 {
+    using System.IO;
+
+    using Windows.Storage;
+
     public partial class App : Application
     {
         /// <summary>
@@ -55,6 +59,14 @@ namespace Gep13.WindowsPhoneSample.WindowsPhone
                 PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
             }
 
+        }
+
+        public static string DatabaseFilePath
+        {
+            get
+            {
+                return Path.Combine(Path.Combine(ApplicationData.Current.LocalFolder.Path, "gep13.sqlite"));
+            }
         }
 
         // Code to execute when a contract activation such as a file open or save picker returns 

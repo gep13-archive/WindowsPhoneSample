@@ -4,14 +4,12 @@
 
     public class Job
     {
-        [PrimaryKey]
-        public string JobId { get; set; }
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
 
-        public string JourneyId { get; set; }
+        public int JourneyId { get; set; }
 
         public string JobStatus { get; set; }
-
-        public string JobStatusLabel { get; set; }
 
         public string CustomerJobNo { get; set; }
 

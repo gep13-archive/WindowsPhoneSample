@@ -11,7 +11,7 @@
 
     public class JobRepository : BaseRepository, IJobRepository
     {
-        public ReadOnlyCollection<JobDto> GetJobsByJourneyId(string journeyId)
+        public ReadOnlyCollection<JobDto> GetJobsByJourneyId(int journeyId)
         {
             using (var databaseConnection = new SQLiteConnection(new SQLitePlatformWP8(), this.DatabaseFilePath))
             {
@@ -20,11 +20,11 @@
             }
         }
 
-        public JobDto UpdateJobStatus(string jobId, string status, string statusLabel)
+        public JobDto UpdateJobStatus(int jobId, string status)
         {
             using (var databaseConnection = new SQLiteConnection(new SQLitePlatformWP8(), this.DatabaseFilePath))
             {
-                var job = databaseConnection.Table<Job>().FirstOrDefault(j => j.JobId == jobId);
+                var job = databaseConnection.Table<Job>().FirstOrDefault(j => j.Id == jobId);
 
                 if (job == null)
                 {
@@ -32,7 +32,6 @@
                 }
 
                 job.JobStatus = status;
-                job.JobStatusLabel = statusLabel;
                 databaseConnection.Update(job);
 
                 return Mapper.Map<JobDto>(job);

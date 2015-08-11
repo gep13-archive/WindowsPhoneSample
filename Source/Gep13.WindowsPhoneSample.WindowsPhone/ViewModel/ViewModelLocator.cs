@@ -17,6 +17,8 @@ namespace Gep13.WindowsPhoneSample.WindowsPhone.ViewModel
     using GalaSoft.MvvmLight.Ioc;
     using Gep13.WindowsPhoneSample.Core.Repository;
     using Gep13.WindowsPhoneSample.Core.Services;
+    using Gep13.WindowsPhoneSample.WindowsPhone.Mappers;
+
     using Microsoft.Practices.ServiceLocation;
 
     /// <summary>
@@ -46,6 +48,17 @@ namespace Gep13.WindowsPhoneSample.WindowsPhone.ViewModel
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<IJobRepository, JobRepository>();
             SimpleIoc.Default.Register<IJobService, JobService>();
+
+            SimpleIoc.Default.Register(
+                () =>
+                    {
+                        var context = new Gep13DataContext();
+                        context.OnCreate(App.DatabaseFilePath);
+                        return context;
+                    },
+                true);
+
+            AutoMapperConfiguration.Configure(null);
         }
 
         public MainViewModel Main

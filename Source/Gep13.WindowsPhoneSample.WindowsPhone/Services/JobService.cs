@@ -18,14 +18,15 @@
 
         public ObservableCollection<JobViewModel> GetListOfJobs()
         {
-            var jobs = this.jobRepository.GetJobsByJourneyId("1");
+            var jobs = this.jobRepository.GetJobsByJourneyId(1);
 
             return new ObservableCollection<JobViewModel>(Mapper.Map<ObservableCollection<JobViewModel>>(jobs));
         }
 
         public JobViewModel AddJob(JobDto job)
         {
-            return Mapper.Map<JobViewModel>(this.jobRepository.AddJob(Mapper.Map<Job>(job)));
+            var newJob = this.jobRepository.AddJob(Mapper.Map<Job>(job));
+            return Mapper.Map<JobViewModel>(newJob);
         }
     }
 }
