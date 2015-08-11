@@ -19,7 +19,7 @@
 
     <i:Interaction.Behaviors>
         <behaviors:ApplicationBarBehavior>
-            <behaviors:ApplicationBarIconButton Command="{Binding AddJobCommand, Mode=OneTime}" Text="Add Job" />
+            <behaviors:ApplicationBarIconButton Command="{Binding AddJobCommand, Mode=OneTime}" Text="Add Job" IconUri="/Assets/AppBar/add.png" />
         </behaviors:ApplicationBarBehavior>
     </i:Interaction.Behaviors>
 
