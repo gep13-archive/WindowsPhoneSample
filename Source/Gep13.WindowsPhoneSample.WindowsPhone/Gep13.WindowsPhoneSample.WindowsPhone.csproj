@@ -26,7 +26,7 @@
     <ValidateXaml>true</ValidateXaml>
     <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
     <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
-    <DefaultLanguage>en-US</DefaultLanguage>
+    <DefaultLanguage>en-GB</DefaultLanguage>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
@@ -98,6 +98,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="LocalizedStrings.cs" />
+    <Compile Include="Services\BackgroundTaskService.cs" />
     <Compile Include="ViewModelLocator.cs" />
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -174,6 +175,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Gep13.WindowsPhoneSample.BackgroundTasks\Gep13.WindowsPhoneSample.BackgroundTasks.csproj">
+      <Project>{3a2ad47c-0a82-4354-9dec-3979a3762e68}</Project>
+      <Name>Gep13.WindowsPhoneSample.BackgroundTasks</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Gep13.WindowsPhoneSample.Core\Gep13.WindowsPhoneSample.Core.csproj">
       <Project>{c90031b5-081b-4a82-99cb-9b7bb984c9a4}</Project>
       <Name>Gep13.WindowsPhoneSample.Core</Name>

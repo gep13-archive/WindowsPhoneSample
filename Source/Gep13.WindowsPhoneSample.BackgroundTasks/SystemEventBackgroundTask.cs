@@ -13,8 +13,6 @@
 
             AutoMapperConfiguration.Configure(null);
 
-            var settings = ApplicationData.Current.LocalSettings;
-
             var jobRepository = new JobRepository();
             var jobs = jobRepository.GetJobsByJourneyId(1);
 

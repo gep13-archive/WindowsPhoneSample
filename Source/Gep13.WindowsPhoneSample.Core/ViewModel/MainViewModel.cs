@@ -1,19 +1,25 @@
 namespace Gep13.WindowsPhoneSample.Core.ViewModel
 {
     using System.Collections.ObjectModel;
+    using System.Threading.Tasks;
+
     using AutoMapper;
     using GalaSoft.MvvmLight;
     using GalaSoft.MvvmLight.Command;
+    using GalaSoft.MvvmLight.Messaging;
+
     using Gep13.WindowsPhoneSample.Core.Dto;
     using Gep13.WindowsPhoneSample.Core.Services;
 
     public class MainViewModel : ViewModelBase
     {
         private readonly IJobService jobService;
+        private readonly IBackgroundTaskService backgroundTaskService;
 
-        public MainViewModel(IJobService jobService)
+        public MainViewModel(IJobService jobService, IBackgroundTaskService backgroundTaskService)
         {
             this.jobService = jobService;
+            this.backgroundTaskService = backgroundTaskService;
 
             if (this.IsInDesignMode)
             {
@@ -25,7 +31,7 @@ namespace Gep13.WindowsPhoneSample.Core.ViewModel
         {
             get
             {
-                return new RelayCommand(this.FetchJobs);
+                return new RelayCommand(async () => await this.PageLoaded());
             }
         }
 
@@ -38,6 +44,22 @@ namespace Gep13.WindowsPhoneSample.Core.ViewModel
         }
 
         public ObservableCollection<JobViewModel> Jobs { get; set; }
+
+        private async Task PageLoaded()
+        {
+            Messenger.Default.Register<NotificationMessage>(
+                this,
+                m =>
+                    {
+                        if (m.Notification.Equals(Constants.Messages.SystemEventBackgroundTaskCompleted))
+                        {
+                            this.FetchJobs();
+                        }
+                    });
+
+            await this.backgroundTaskService.ActivateService();
+            this.FetchJobs();
+        }
 
         private void FetchJobs()
         {

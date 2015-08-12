@@ -8,6 +8,8 @@ namespace Gep13.WindowsPhoneSample.WindowsPhone
     using Gep13.WindowsPhoneSample.Core.Repository;
     using Gep13.WindowsPhoneSample.Core.Services;
     using Gep13.WindowsPhoneSample.Core.ViewModel;
+    using Gep13.WindowsPhoneSample.WindowsPhone.Services;
+
     using Microsoft.Practices.ServiceLocation;
 
     public class ViewModelLocator
@@ -23,10 +25,12 @@ namespace Gep13.WindowsPhoneSample.WindowsPhone
             if (!ViewModelBase.IsInDesignModeStatic)
             {
                 SimpleIoc.Default.Register<IJobService, JobService>();
+                SimpleIoc.Default.Register<IBackgroundTaskService, BackgroundTaskService>();
             }
             else
             {
                 SimpleIoc.Default.Register<IJobService, FakeJobService>();
+                SimpleIoc.Default.Register<IBackgroundTaskService, FakeBackgroundTaskService>();
             }
 
             // Register Repositories
